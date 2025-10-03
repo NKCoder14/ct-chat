@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\activity_chat.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\activity_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\item_received_message.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\item_received_message.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\item_group.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\item_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\activity_create_group.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\activity_create_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\item_sent_message.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\item_sent_message.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\fragment_calls.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\fragment_calls.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\item_user.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\item_user.xml"
+    },
+    {
+        "merged": "com.example.ctchat.app-mergeDebugResources-42:/layout/item_received_message.xml",
+        "source": "com.example.ctchat.app-main-45:/layout/item_received_message.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\fragment_chats.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\fragment_chats.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\activity_group_chat.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\activity_group_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\fragment_status.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\fragment_status.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-mergeDebugResources-42:\\layout\\item_user_selectable.xml",
+        "source": "C:\\Users\\Nitesh Kalyanshetti\\.gradle\\daemon\\8.13\\com.example.ctchat.app-main-45:\\layout\\item_user_selectable.xml"
+    }
+]

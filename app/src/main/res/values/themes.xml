@@ -12,5 +12,11 @@
 
     <style name="Theme.CTChat.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.CTChat.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primary_color</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.CTChat</item>
+    </style>
 </resources>
 

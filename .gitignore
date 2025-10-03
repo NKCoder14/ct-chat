@@ -4,6 +4,7 @@ Android Studio / IntelliJ
 User-specific IDE settings and caches.
 *.iml
 .idea/
+.idea/
 
 ===============================================
 Gradle
@@ -28,11 +29,24 @@ App signing keys. If these leak, anyone can sign and release
 malicious updates to your app.
 *.jks
 *.keystore
+/build
+
+===============================================
+SECRETS & CONFIGURATION - DO NOT COMMIT
+===============================================
+Firebase configuration file. Contains sensitive API keys.
+/app/google-services.json
+
+App signing keys. If these leak, anyone can sign and release
+malicious updates to your app.
+*.jks
+*.keystore
 
 ===============================================
 Development Files & Tools
 ===============================================
 Emulator captures, logs, and native build artifacts.
+/captures/
 /captures/
 *.log
 .externalNativeBuild/

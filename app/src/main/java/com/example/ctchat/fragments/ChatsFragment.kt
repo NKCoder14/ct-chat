@@ -6,21 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ctchat.adapters.UsersAdapter
+import com.example.ctchat.adapters.ConversationAdapter
 import com.example.ctchat.databinding.FragmentChatsBinding
+import com.example.ctchat.models.Conversation
+import com.example.ctchat.models.Group
 import com.example.ctchat.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.toObject
 
 class ChatsFragment : Fragment() {
 
     private var _binding: FragmentChatsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var usersAdapter: UsersAdapter
-    private val db = FirebaseFirestore.getInstance()
-    private val auth = FirebaseAuth.getInstance()
-    private var allUsers = mutableListOf<User>()
+    private lateinit var conversationAdapter: ConversationAdapter
+    private var allConversations = mutableListOf<Conversation>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,47 +32,59 @@ class ChatsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        listenForUsers()
+        fetchConversations()
     }
 
     private fun setupRecyclerView() {
-        usersAdapter = UsersAdapter()
+        conversationAdapter = ConversationAdapter(requireContext())
         binding.usersRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = usersAdapter
+            adapter = conversationAdapter
         }
     }
 
-    private fun listenForUsers() {
-        val currentUserId = auth.currentUser?.uid
-        db.collection("users")
-            .addSnapshotListener { snapshot, error ->
-                if (error != null) {
-                    return@addSnapshotListener
-                }
-                allUsers.clear()
-                snapshot?.documents?.forEach { document ->
-                    val user = document.toObject<User>()
-                    if (user != null && user.uid != currentUserId) {
-                        allUsers.add(user)
-                    }
-                }
-                usersAdapter.submitList(allUsers)
+    private fun fetchConversations() {
+        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid ?: return
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("users").addSnapshotListener { userSnapshot, _ ->
+            val users = userSnapshot?.toObjects(User::class.java)
+                ?.filter { it.uid != currentUserId }
+                ?.map { Conversation.UserConversation(it) } ?: emptyList()
+
+            fetchGroups(currentUserId, users)
+        }
+    }
+
+    private fun fetchGroups(currentUserId: String, users: List<Conversation>) {
+        FirebaseFirestore.getInstance().collection("groups")
+            .whereArrayContains("members", currentUserId)
+            .addSnapshotListener { groupSnapshot, _ ->
+                val groups = groupSnapshot?.toObjects(Group::class.java)
+                    ?.map { Conversation.GroupConversation(it) } ?: emptyList()
+
+                allConversations = (groups + users).toMutableList()
+                conversationAdapter.submitList(allConversations)
             }
     }
+
 
     fun filterUsers(query: String?) {
-        if (query.isNullOrBlank()) {
-            usersAdapter.submitList(allUsers)
+        val filteredList = if (query.isNullOrBlank()) {
+            allConversations
         } else {
-            val filteredList = allUsers.filter {
-                it.username?.contains(query, ignoreCase = true) == true ||
-                        it.email?.contains(query, ignoreCase = true) == true
+            allConversations.filter { conversation ->
+                when (conversation) {
+                    is Conversation.UserConversation ->
+                        conversation.user.username?.contains(query, ignoreCase = true) == true ||
+                                conversation.user.email?.contains(query, ignoreCase = true) == true
+                    is Conversation.GroupConversation ->
+                        conversation.group.name?.contains(query, ignoreCase = true) == true
+                }
             }
-            usersAdapter.submitList(filteredList)
         }
+        conversationAdapter.submitList(filteredList)
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

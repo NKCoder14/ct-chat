@@ -1,8 +1,7 @@
 package com.example.ctchat.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ctchat.R
@@ -15,41 +14,45 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
 class ChatActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityChatBinding
-    private lateinit var auth: FirebaseAuth
-    private lateinit var firestore: FirebaseFirestore
     private lateinit var chatAdapter: ChatAdapter
+    private lateinit var db: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
+
     private var otherUser: User? = null
     private var chatRoomId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
-        auth = FirebaseAuth.getInstance()
-        firestore = FirebaseFirestore.getInstance()
 
-        otherUser = User(
-            uid = intent.getStringExtra("USER_ID"),
-            username = intent.getStringExtra("USER_NAME")
-        )
+        db = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
+
+        val otherUserId = intent.getStringExtra("USER_ID")
+        val otherUserName = intent.getStringExtra("USER_NAME")
+        otherUser = User(uid = otherUserId, username = otherUserName)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = otherUser?.username ?: "Chat"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
         setupRecyclerView()
-        determineChatRoomId()
 
         binding.btnSend.setOnClickListener {
-            val messageText = binding.etMessage.text.toString().trim()
+            val messageText = binding.messageBox.text.toString().trim()
             if (messageText.isNotEmpty()) {
                 sendMessage(messageText)
             }
         }
+
+        determineChatRoomId()
     }
 
     private fun setupRecyclerView() {
-        chatAdapter = ChatAdapter(auth.currentUser!!.uid)
+        chatAdapter = ChatAdapter(auth.currentUser?.uid ?: "")
         binding.chatRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@ChatActivity).apply {
                 stackFromEnd = true
@@ -63,6 +66,7 @@ class ChatActivity : AppCompatActivity() {
         val otherUserId = otherUser?.uid
 
         if (currentUserId != null && otherUserId != null) {
+            // Create a consistent chat room ID by ordering the UIDs alphabetically
             chatRoomId = if (currentUserId < otherUserId) {
                 "${currentUserId}_${otherUserId}"
             } else {
@@ -74,15 +78,15 @@ class ChatActivity : AppCompatActivity() {
 
     private fun listenForMessages() {
         chatRoomId?.let {
-            firestore.collection("chats").document(it).collection("messages")
+            db.collection("chats").document(it)
+                .collection("messages")
                 .orderBy("timestamp", Query.Direction.ASCENDING)
-                .addSnapshotListener { snapshots, error ->
+                .addSnapshotListener { snapshot, error ->
                     if (error != null) {
                         return@addSnapshotListener
                     }
-
-                    val messages = snapshots?.toObjects(ChatMessage::class.java)
-                    if (messages != null) {
+                    snapshot?.let { querySnapshot ->
+                        val messages = querySnapshot.toObjects(ChatMessage::class.java)
                         chatAdapter.submitList(messages)
                         binding.chatRecyclerView.scrollToPosition(messages.size - 1)
                     }
@@ -90,30 +94,24 @@ class ChatActivity : AppCompatActivity() {
         }
     }
 
-    private fun sendMessage(messageText: String) {
-        val currentUserId = auth.currentUser?.uid ?: return
-        val receiverId = otherUser?.uid ?: return
+    private fun sendMessage(text: String) {
+        val currentUser = auth.currentUser
+        if (currentUser == null || chatRoomId == null) return
 
         val message = ChatMessage(
-            senderId = currentUserId,
-            receiverId = receiverId,
-            text = messageText,
+            senderId = currentUser.uid,
+            senderName = null, 
+            text = text,
             timestamp = System.currentTimeMillis()
         )
 
         chatRoomId?.let {
-            firestore.collection("chats").document(it).collection("messages").add(message)
+            db.collection("chats").document(it)
+                .collection("messages")
+                .add(message)
                 .addOnSuccessListener {
-                    binding.etMessage.text.clear()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Failed to send message", Toast.LENGTH_SHORT).show()
+                    binding.messageBox.text.clear()
                 }
         }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return true
     }
 }
