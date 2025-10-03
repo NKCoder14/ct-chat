@@ -3,12 +3,8 @@ Android Studio / IntelliJ
 ===============================================
 User-specific IDE settings and caches.
 *.iml
-.idea/caches/
-.idea/libraries/
-.idea/modules.xml
-.idea/workspace.xml
-.idea/navEditor.xml
-.idea/assetWizardSettings.xml
+.idea
+.app/google-services.json
 
 ===============================================
 Gradle
