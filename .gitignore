@@ -1,0 +1,59 @@
+===============================================
+Android Studio / IntelliJ
+===============================================
+User-specific IDE settings and caches.
+*.iml
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+===============================================
+Gradle
+===============================================
+Gradle build system files and user-specific caches.
+.gradle/
+local.properties
+
+===============================================
+Build Output
+===============================================
+All compiled code, resources, and APKs/Bundles.
+build/
+
+===============================================
+Development Files & Tools
+===============================================
+Emulator captures, logs, and native build artifacts.
+captures/
+*.log
+.externalNativeBuild/
+.cxx/
+
+===============================================
+Security - CRITICAL
+===============================================
+Never commit your app signing keys!
+*.jks
+*.keystore
+
+===============================================
+System Files
+===============================================
+macOS specific files.
+.DS_Store
+
+
+### **What to Do After Making the Changes**
+
+If you have already committed files to Git that *should* have been ignored (like `.iml` files), Git might keep tracking them. To fix this, run these two commands from your project's root directory in the terminal:
+
+1.  **Remove all tracked files from the staging area:**
+    ```bash
+    git rm -r --cached .
+    ```
+2.  **Re-add all files, respecting the new `.gitignore`:**
+    ```bash
+    git add .

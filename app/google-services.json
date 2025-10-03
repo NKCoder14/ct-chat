@@ -1,0 +1,29 @@
+  {
+  "project_info": {
+    "project_number": "368036381955",
+    "project_id": "ct-chat-c7fc7",
+    "storage_bucket": "ct-chat-c7fc7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368036381955:android:b959e536e75ee889495536",
+        "android_client_info": {
+          "package_name": "com.example.ctchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2x6S5OQQ0tP1NIVegI8-RIgs_9LZ8IeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
