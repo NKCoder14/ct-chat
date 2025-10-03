@@ -1,89 +1,59 @@
-CTChat - Internal Team Communication App
-CTChat is a feature-rich, real-time messaging application built for Android. This app was developed as an internal communication tool for the team at Career Tribe to foster seamless and efficient collaboration. It provides a simple and intuitive interface for one-on-one conversations and group chats, all powered by a robust Firebase backend.
+# CTChat - Android Chat Application
+# 💬 Real-time Communication Platform for Career Tribe
+A modern, native Android application built using Kotlin that allows internal team members to communicate through one-on-one and group chats. Developed to enhance and streamline team collaboration at Career Tribe.
 
-✨ Features
-User Authentication: Secure and separate flows for user registration and login using email and password.
+This project was developed for the internal team at Career Tribe to facilitate better communication.
 
-Real-time Messaging: Instantaneous sending and receiving of messages in one-on-one chat rooms.
+## 🚀 Features
+🔐 Secure Authentication: Separate, dedicated screens for user registration and login.
 
-User & Group Lists: A tabbed interface that displays a list of all team members.
+💬 Real-time Messaging: Instant one-on-one chat with message history loaded on open.
 
-Live User Search: A search bar in the toolbar to quickly find and filter colleagues by username or email.
+👥 Group Chat Creation: A dedicated screen with a user-selection list to create new group chats.
 
-Group Chat Creation: A dedicated screen and a FloatingActionButton to create new group chats for specific projects or topics.
+🔍 Live User Search: An integrated toolbar search to filter the user list in real-time.
 
-Message Timestamps: Every message is timestamped, providing clear context for conversations.
+🕓 Message Timestamps: Every message includes a formatted timestamp for clear context.
 
-Custom UI: A polished user interface with custom theme colors, message bubble designs, and intuitive controls.
+🎨 Custom UI: A polished interface with a custom color theme, distinct message bubbles, and a Material Design FloatingActionButton.
 
-🛠️ Technology Stack
-This project is built using modern Android development tools and practices.
+📱 Fully Native & Responsive: Built with Kotlin and XML for the highest performance and a responsive layout that adapts to different screen sizes.
 
-Language: Kotlin
+## 🛠️ Tech Stack
+Kotlin
 
-Architecture: Data Binding for connecting UI components to data sources.
+Android SDK
 
-Backend: Firebase
+XML for Layouts
 
-Authentication: For managing user accounts.
+Firebase
 
-Cloud Firestore: As the real-time NoSQL database for users, messages, and groups.
+Firebase Authentication
 
-UI Components:
+Cloud Firestore
 
 AndroidX Libraries
 
-Material Components for Android (Toolbar, TabLayout, FloatingActionButton)
+Material Components for Android
 
-RecyclerView for efficient lists.
+Data Binding Library
 
-ViewPager2 for the tabbed layout.
+Gradle
 
-Build Tool: Gradle
-
-🚀 Getting Started
-To get this project up and running on your own machine, follow these steps.
-
-Prerequisites
-Android Studio (latest version recommended)
-
-An Android device or emulator running API level 26 or higher.
-
-1. Set Up Firebase
-This app requires a Firebase project to handle its backend services.
-
-Create a Firebase Project: Go to the Firebase Console and create a new project.
-
-Register Your App:
-
-In your project's dashboard, click the Android icon to add a new Android app.
-
-Use com.example.ctchat as the Package Name.
-
-Add your SHA-1 certificate key (you can generate this in Android Studio by opening the Gradle tab, going to YourProjectName > app > Tasks > android, and running signingReport).
-
-Download google-services.json:
-
-Download the google-services.json file provided by Firebase.
-
-Place this file directly inside the app/ directory of your project in Android Studio.
-
-Enable Firebase Services:
-
-In the Firebase Console, go to Authentication -> Sign-in method and enable the Email/Password provider.
-
-Go to Firestore Database -> Create database. Start it in test mode for now. The security rules should be set to allow reads and writes:
-
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}
-
-2. Build and Run the App
-Clone the Repository:
-
-git clone https://github.com/NKCoder14/ct-chat.git
+## 📁 Folder Structure
+.
+├── app/
+│   ├── src/main/
+│   │   ├── java/com/example/ctchat/
+│   │   │   ├── activities/    # UI controllers for screens
+│   │   │   ├── adapters/      # RecyclerView adapters for lists
+│   │   │   ├── fragments/     # UI for tabs (Chats, Status, Calls)
+│   │   │   └── models/        # Kotlin data classes (User, ChatMessage)
+│   │   ├── res/
+│   │   │   ├── layout/        # XML layout files
+│   │   │   ├── drawable/      # Icons and custom backgrounds
+│   │   │   └── menu/          # Toolbar menu definitions
+│   │   └── AndroidManifest.xml # App manifest
+│   ├── build.gradle           # App-level Gradle script
+├── build.gradle               # Project-level Gradle script
+└── README.md                  # This file
