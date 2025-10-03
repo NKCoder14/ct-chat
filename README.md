@@ -6,38 +6,23 @@ This project was developed for the internal team at Career Tribe to facilitate b
 
 ## 🚀 Features
 🔐 Secure Authentication: Separate, dedicated screens for user registration and login.
-
 💬 Real-time Messaging: Instant one-on-one chat with message history loaded on open.
-
 👥 Group Chat Creation: A dedicated screen with a user-selection list to create new group chats.
-
 🔍 Live User Search: An integrated toolbar search to filter the user list in real-time.
-
 🕓 Message Timestamps: Every message includes a formatted timestamp for clear context.
-
 🎨 Custom UI: A polished interface with a custom color theme, distinct message bubbles, and a Material Design FloatingActionButton.
-
 📱 Fully Native & Responsive: Built with Kotlin and XML for the highest performance and a responsive layout that adapts to different screen sizes.
 
 ## 🛠️ Tech Stack
 Kotlin
-
 Android SDK
-
 XML for Layouts
-
 Firebase
-
 Firebase Authentication
-
 Cloud Firestore
-
 AndroidX Libraries
-
 Material Components for Android
-
 Data Binding Library
-
 Gradle
 
 ## 📁 Folder Structure
