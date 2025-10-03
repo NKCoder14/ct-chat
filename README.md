@@ -41,6 +41,9 @@ Data Binding Library
 Gradle
 
 ## 📁 Folder Structure
+
+```bash
+
 .
 ├── app/
 │   ├── src/main/
