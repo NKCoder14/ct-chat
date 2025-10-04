@@ -39,7 +39,9 @@
         <activity
             android:name=".activities.CreateGroupActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="false" />
     </application>
-
 </manifest>
 

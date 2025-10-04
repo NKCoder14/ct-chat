@@ -63,6 +63,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.action_profile -> {
+                startActivity(Intent(this, ProfileActivity::class.java))
+                return true
+            }
             R.id.action_logout -> {
                 auth.signOut()
                 startActivity(Intent(this, LoginActivity::class.java))
