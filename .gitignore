@@ -3,8 +3,7 @@ Android Studio / IntelliJ
 ===============================================
 User-specific IDE settings and caches.
 *.iml
-.idea/
-.idea/
+.idea
 
 ===============================================
 Gradle
@@ -18,6 +17,7 @@ Build Output
 ===============================================
 All compiled code, resources, and APKs/Bundles.
 /build
+app\build
 
 ===============================================
 SECRETS & CONFIGURATION - DO NOT COMMIT
