@@ -32,17 +32,6 @@ malicious updates to your app.
 /build
 
 ===============================================
-SECRETS & CONFIGURATION - DO NOT COMMIT
-===============================================
-Firebase configuration file. Contains sensitive API keys.
-/app/google-services.json
-
-App signing keys. If these leak, anyone can sign and release
-malicious updates to your app.
-*.jks
-*.keystore
-
-===============================================
 Development Files & Tools
 ===============================================
 Emulator captures, logs, and native build artifacts.
@@ -51,7 +40,3 @@ Emulator captures, logs, and native build artifacts.
 *.log
 .externalNativeBuild/
 .cxx/
-
-===============================================
-System Files
-===============================================
