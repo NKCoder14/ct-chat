@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ctchat.adapters.ConversationAdapter
 import com.example.ctchat.databinding.FragmentChatsBinding
 import com.example.ctchat.models.Conversation
+import com.example.ctchat.models.ChatSession
 import com.example.ctchat.models.Group
 import com.example.ctchat.models.User
 import com.google.firebase.auth.FirebaseAuth
@@ -20,6 +21,9 @@ class ChatsFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var conversationAdapter: ConversationAdapter
     private var allConversations = mutableListOf<Conversation>()
+    private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+    private var allUsersMap = mapOf<String, User>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +36,7 @@ class ChatsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        fetchConversations()
+        fetchAllUsersThenConversations()
     }
 
     private fun setupRecyclerView() {
@@ -43,31 +47,49 @@ class ChatsFragment : Fragment() {
         }
     }
 
-    private fun fetchConversations() {
-        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid ?: return
-        val db = FirebaseFirestore.getInstance()
-
+    private fun fetchAllUsersThenConversations() {
         db.collection("users").addSnapshotListener { userSnapshot, _ ->
-            val users = userSnapshot?.toObjects(User::class.java)
-                ?.filter { it.uid != currentUserId }
-                ?.map { Conversation.UserConversation(it) } ?: emptyList()
-
-            fetchGroups(currentUserId, users)
+            allUsersMap = userSnapshot?.toObjects(User::class.java)?.associateBy { it.uid!! } ?: emptyMap()
+            fetchConversations()
         }
     }
 
-    private fun fetchGroups(currentUserId: String, users: List<Conversation>) {
-        FirebaseFirestore.getInstance().collection("groups")
-            .whereArrayContains("members", currentUserId)
-            .addSnapshotListener { groupSnapshot, _ ->
-                val groups = groupSnapshot?.toObjects(Group::class.java)
-                    ?.map { Conversation.GroupConversation(it) } ?: emptyList()
+    private fun fetchConversations() {
+        val currentUserId = auth.currentUser?.uid ?: return
 
-                allConversations = (groups + users).toMutableList()
-                conversationAdapter.submitList(allConversations)
+        db.collection("chats")
+            .whereArrayContains("members", currentUserId)
+            .addSnapshotListener { chatSnapshot, _ ->
+                val activeChatSessions = chatSnapshot?.toObjects(ChatSession::class.java)
+                    ?.mapNotNull { session ->
+                        val otherUserId = session.members.find { it != currentUserId }
+                        allUsersMap[otherUserId]?.let { otherUser ->
+                            Conversation.ChatSessionConversation(session, otherUser)
+                        }
+                    } ?: emptyList()
+
+                db.collection("groups")
+                    .whereArrayContains("members", currentUserId)
+                    .addSnapshotListener { groupSnapshot, _ ->
+                        val activeGroups = groupSnapshot?.toObjects(Group::class.java)
+                            ?.map { Conversation.GroupConversation(it) } ?: emptyList()
+
+                        val userIdsInActiveChats = activeChatSessions.map { it.otherUser?.uid }
+                        val usersNotInActiveChats = allUsersMap.values
+                            .filter { it.uid != currentUserId && !userIdsInActiveChats.contains(it.uid) }
+                            .map { user ->
+                                val dummySession = ChatSession(lastMessage = null, lastMessageTimestamp = 0)
+                                Conversation.ChatSessionConversation(dummySession, user)
+                            }
+
+                        val combinedList = (activeChatSessions + activeGroups + usersNotInActiveChats)
+                            .sortedByDescending { it.lastMessageTimestamp }
+
+                        allConversations = combinedList.toMutableList()
+                        conversationAdapter.submitList(allConversations)
+                    }
             }
     }
-
 
     fun filterUsers(query: String?) {
         val filteredList = if (query.isNullOrBlank()) {
@@ -75,9 +97,8 @@ class ChatsFragment : Fragment() {
         } else {
             allConversations.filter { conversation ->
                 when (conversation) {
-                    is Conversation.UserConversation ->
-                        conversation.user.username?.contains(query, ignoreCase = true) == true ||
-                                conversation.user.email?.contains(query, ignoreCase = true) == true
+                    is Conversation.ChatSessionConversation ->
+                        conversation.otherUser?.username?.contains(query, ignoreCase = true) == true
                     is Conversation.GroupConversation ->
                         conversation.group.name?.contains(query, ignoreCase = true) == true
                 }
