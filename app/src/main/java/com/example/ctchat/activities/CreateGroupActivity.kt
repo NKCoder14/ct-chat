@@ -1,8 +1,8 @@
 package com.example.ctchat.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ctchat.R
@@ -14,18 +14,18 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class CreateGroupActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateGroupBinding
-    private lateinit var firestore: FirebaseFirestore
-    private lateinit var auth: FirebaseAuth
-    private lateinit var selectUserAdapter: SelectUserAdapter
+    private lateinit var adapter: SelectUserAdapter
+    private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+    private var allUsers = mutableListOf<User>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_create_group)
-        firestore = FirebaseFirestore.getInstance()
-        auth = FirebaseAuth.getInstance()
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
         setupRecyclerView()
         fetchUsers()
@@ -36,59 +36,60 @@ class CreateGroupActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        selectUserAdapter = SelectUserAdapter()
-        binding.usersRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@CreateGroupActivity)
-            adapter = selectUserAdapter
-        }
+        adapter = SelectUserAdapter()
+        binding.usersRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.usersRecyclerView.adapter = adapter
     }
 
     private fun fetchUsers() {
-        firestore.collection("users")
-            .get()
-            .addOnSuccessListener { result ->
-                val users = result.toObjects(User::class.java)
-                val otherUsers = users.filter { it.uid != auth.currentUser?.uid }
-                selectUserAdapter.submitList(otherUsers)
+        val currentUserId = auth.currentUser?.uid
+        db.collection("users").get().addOnSuccessListener { snapshot ->
+            allUsers.clear()
+            for (document in snapshot.documents) {
+                val user = document.toObject(User::class.java)
+                if (user != null && user.uid != currentUserId) {
+                    allUsers.add(user)
+                }
             }
+            adapter.submitList(allUsers)
+        }
     }
 
     private fun createGroup() {
         val groupName = binding.etGroupName.text.toString().trim()
-        val selectedUsers = selectUserAdapter.getSelectedUsers()
+        val selectedUserIds = adapter.getSelectedUserIds()
 
         if (groupName.isEmpty()) {
             Toast.makeText(this, "Please enter a group name", Toast.LENGTH_SHORT).show()
             return
         }
-
-        if (selectedUsers.size < 2) {
-            Toast.makeText(this, "Please select at least two members for the group", Toast.LENGTH_SHORT).show()
+        if (selectedUserIds.isEmpty()) {
+            Toast.makeText(this, "Please select at least one member", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val currentUserUid = auth.currentUser!!.uid
-        val memberIds = selectedUsers.mapNotNull { it.uid }.toMutableList()
-        memberIds.add(currentUserUid)
+        val currentUserId = auth.currentUser?.uid
+        if (currentUserId == null) return
 
-        val group = hashMapOf(
+        val members = selectedUserIds.toMutableList()
+        members.add(currentUserId)
+
+        val groupId = db.collection("groups").document().id
+        val groupData = mapOf(
+            "groupId" to groupId,
             "name" to groupName,
-            "members" to memberIds,
-            "createdAt" to System.currentTimeMillis()
+            "members" to members,
+            "lastMessage" to "Group created",
+            "lastMessageTimestamp" to System.currentTimeMillis()
         )
 
-        firestore.collection("groups").add(group)
+        db.collection("groups").document(groupId).set(groupData)
             .addOnSuccessListener {
                 Toast.makeText(this, "Group '$groupName' created successfully", Toast.LENGTH_SHORT).show()
-                finish() 
+                finish()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed to create group", Toast.LENGTH_SHORT).show()
             }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return true
     }
 }
