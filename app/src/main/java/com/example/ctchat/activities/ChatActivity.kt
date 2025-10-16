@@ -12,6 +12,7 @@ import com.example.ctchat.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.SetOptions
 
 class ChatActivity : AppCompatActivity() {
 
@@ -66,7 +67,6 @@ class ChatActivity : AppCompatActivity() {
         val otherUserId = otherUser?.uid
 
         if (currentUserId != null && otherUserId != null) {
-            // Create a consistent chat room ID by ordering the UIDs alphabetically
             chatRoomId = if (currentUserId < otherUserId) {
                 "${currentUserId}_${otherUserId}"
             } else {
@@ -82,9 +82,7 @@ class ChatActivity : AppCompatActivity() {
                 .collection("messages")
                 .orderBy("timestamp", Query.Direction.ASCENDING)
                 .addSnapshotListener { snapshot, error ->
-                    if (error != null) {
-                        return@addSnapshotListener
-                    }
+                    if (error != null) return@addSnapshotListener
                     snapshot?.let { querySnapshot ->
                         val messages = querySnapshot.toObjects(ChatMessage::class.java)
                         chatAdapter.submitList(messages)
@@ -100,18 +98,25 @@ class ChatActivity : AppCompatActivity() {
 
         val message = ChatMessage(
             senderId = currentUser.uid,
-            senderName = null, 
+            senderName = null,
             text = text,
             timestamp = System.currentTimeMillis()
         )
 
-        chatRoomId?.let {
-            db.collection("chats").document(it)
-                .collection("messages")
-                .add(message)
-                .addOnSuccessListener {
-                    binding.messageBox.text.clear()
-                }
-        }
+        val chatSessionData = hashMapOf(
+            "chatRoomId" to chatRoomId,
+            "members" to listOf(currentUser.uid, otherUser?.uid),
+            "lastMessage" to text,
+            "lastMessageTimestamp" to message.timestamp
+        )
+
+        db.collection("chats").document(chatRoomId!!)
+            .set(chatSessionData, SetOptions.merge())
+            .addOnSuccessListener {
+                db.collection("chats").document(chatRoomId!!)
+                    .collection("messages")
+                    .add(message)
+                    .addOnSuccessListener { binding.messageBox.text.clear() }
+            }
     }
 }
