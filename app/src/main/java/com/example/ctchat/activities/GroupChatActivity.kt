@@ -65,15 +65,11 @@ class GroupChatActivity : AppCompatActivity() {
             .collection("messages")
             .orderBy("timestamp", Query.Direction.ASCENDING)
             .addSnapshotListener { snapshot, error ->
-                if (error != null) {
-                    return@addSnapshotListener
-                }
+                if (error != null) return@addSnapshotListener
                 snapshot?.let {
                     val messages = it.toObjects(ChatMessage::class.java)
                     chatAdapter.submitList(messages)
-                    if (messages.isNotEmpty()) {
-                        binding.chatRecyclerView.scrollToPosition(messages.size - 1)
-                    }
+                    binding.chatRecyclerView.scrollToPosition(messages.size - 1)
                 }
             }
     }
@@ -90,11 +86,18 @@ class GroupChatActivity : AppCompatActivity() {
             timestamp = System.currentTimeMillis()
         )
 
+        val groupUpdate = mapOf(
+            "lastMessage" to text,
+            "lastMessageTimestamp" to message.timestamp
+        )
+
         db.collection("groups").document(groupId!!)
-            .collection("messages")
-            .add(message)
+            .update(groupUpdate as Map<String, Any>)
             .addOnSuccessListener {
-                binding.messageBox.text.clear()
+                db.collection("groups").document(groupId!!)
+                    .collection("messages")
+                    .add(message)
+                    .addOnSuccessListener { binding.messageBox.text.clear() }
             }
     }
 }
