@@ -40,7 +40,3 @@ Emulator captures, logs, and native build artifacts.
 *.log
 .externalNativeBuild/
 .cxx/
-
-===============================================
-System Files
-===============================================
