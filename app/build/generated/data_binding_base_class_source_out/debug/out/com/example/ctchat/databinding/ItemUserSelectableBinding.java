@@ -17,7 +17,7 @@ import java.lang.Object;
 
 public abstract class ItemUserSelectableBinding extends ViewDataBinding {
   @NonNull
-  public final CheckBox checkbox;
+  public final CheckBox checkboxSelectUser;
 
   @NonNull
   public final CircleImageView imgProfile;
@@ -26,9 +26,9 @@ public abstract class ItemUserSelectableBinding extends ViewDataBinding {
   public final TextView tvUsername;
 
   protected ItemUserSelectableBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CheckBox checkbox, CircleImageView imgProfile, TextView tvUsername) {
+      CheckBox checkboxSelectUser, CircleImageView imgProfile, TextView tvUsername) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.checkbox = checkbox;
+    this.checkboxSelectUser = checkboxSelectUser;
     this.imgProfile = imgProfile;
     this.tvUsername = tvUsername;
   }

@@ -4232,10 +4232,10 @@
                     "from": {
                         "startLines": "15,1,12,13",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "833,63,652,747",
+                        "startOffsets": "848,64,664,760",
                         "endLines": "19,10,12,13",
                         "endColumns": "12,12,94,84",
-                        "endOffsets": "1137,646,742,827"
+                        "endOffsets": "1156,656,754,840"
                     },
                     "to": {
                         "startLines": "6400,6435,6445,6446",

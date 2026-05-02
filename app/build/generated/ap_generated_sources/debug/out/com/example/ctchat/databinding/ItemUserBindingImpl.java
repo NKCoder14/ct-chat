@@ -16,6 +16,8 @@ public class ItemUserBindingImpl extends ItemUserBinding  {
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.imgProfile, 1);
         sViewsWithIds.put(R.id.tvUsername, 2);
+        sViewsWithIds.put(R.id.tvLastMessage, 3);
+        sViewsWithIds.put(R.id.tvTimestamp, 4);
     }
     // views
     @NonNull
@@ -26,11 +28,13 @@ public class ItemUserBindingImpl extends ItemUserBinding  {
     // Inverse Binding Event Handlers
 
     public ItemUserBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 3, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private ItemUserBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (de.hdodenhof.circleimageview.CircleImageView) bindings[1]
+            , (android.widget.TextView) bindings[3]
+            , (android.widget.TextView) bindings[4]
             , (android.widget.TextView) bindings[2]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];

@@ -16,7 +16,7 @@ public class ItemUserSelectableBindingImpl extends ItemUserSelectableBinding  {
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.imgProfile, 1);
         sViewsWithIds.put(R.id.tvUsername, 2);
-        sViewsWithIds.put(R.id.checkbox, 3);
+        sViewsWithIds.put(R.id.checkboxSelectUser, 3);
     }
     // views
     @NonNull

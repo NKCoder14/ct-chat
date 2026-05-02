@@ -19,14 +19,16 @@ drawable received_message_background
 drawable sent_message_background
 id action_logout
 id action_new_group
+id action_profile
 id action_search
 id appBarLayout
 id btnCreateGroup
 id btnLogin
 id btnRegister
+id btnSave
 id btnSend
 id chatRecyclerView
-id checkbox
+id checkboxSelectUser
 id etEmail
 id etGroupName
 id etPassword
@@ -34,7 +36,9 @@ id etUsername
 id fabNewGroup
 id guideline
 id imgProfile
+id ivProfileImage
 id messageBox
+id progressBar
 id tabLayout
 id tilEmail
 id tilGroupName
@@ -43,6 +47,7 @@ id tilUsername
 id toolbar
 id tvGoToRegister
 id tvGroupName
+id tvLastMessage
 id tvMessage
 id tvSelectMembers
 id tvSenderName
@@ -56,6 +61,7 @@ layout activity_create_group
 layout activity_group_chat
 layout activity_login
 layout activity_main
+layout activity_profile
 layout activity_register
 layout fragment_calls
 layout fragment_chats

@@ -3,6 +3,7 @@ package com.example.ctchat.adapters
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -14,6 +15,8 @@ import com.example.ctchat.activities.GroupChatActivity
 import com.example.ctchat.databinding.ItemGroupBinding
 import com.example.ctchat.databinding.ItemUserBinding
 import com.example.ctchat.models.Conversation
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ConversationAdapter(private val context: Context) :
     ListAdapter<Conversation, RecyclerView.ViewHolder>(ConversationDiffCallback()) {
@@ -23,7 +26,7 @@ class ConversationAdapter(private val context: Context) :
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
-            is Conversation.UserConversation -> VIEW_TYPE_USER
+            is Conversation.ChatSessionConversation -> VIEW_TYPE_USER
             is Conversation.GroupConversation -> VIEW_TYPE_GROUP
         }
     }
@@ -45,22 +48,46 @@ class ConversationAdapter(private val context: Context) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (val conversation = getItem(position)) {
-            is Conversation.UserConversation -> (holder as UserViewHolder).bind(conversation)
+            is Conversation.ChatSessionConversation -> (holder as UserViewHolder).bind(conversation)
             is Conversation.GroupConversation -> (holder as GroupViewHolder).bind(conversation)
+        }
+    }
+
+    private fun formatTimestamp(timestamp: Long): String {
+        if (timestamp == 0L) return ""
+
+        val messageCalendar = Calendar.getInstance().apply { timeInMillis = timestamp }
+        val now = Calendar.getInstance()
+
+        return if (now.get(Calendar.YEAR) == messageCalendar.get(Calendar.YEAR) &&
+            now.get(Calendar.DAY_OF_YEAR) == messageCalendar.get(Calendar.DAY_OF_YEAR)) {
+            SimpleDateFormat("h:mm a", Locale.getDefault()).format(Date(timestamp))
+        } else {
+            SimpleDateFormat("MMM d", Locale.getDefault()).format(Date(timestamp))
         }
     }
 
     inner class UserViewHolder(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(conversation: Conversation.UserConversation) {
-            val user = conversation.user
-            binding.tvUsername.text = user.username
+        fun bind(conversation: Conversation.ChatSessionConversation) {
+            binding.tvUsername.text = conversation.otherUser?.username
             Glide.with(context).load(R.drawable.ic_profile).into(binding.imgProfile)
+
+            // --- FIX IS HERE: Handle users with no message history ---
+            if (conversation.session.lastMessage.isNullOrEmpty()) {
+                binding.tvLastMessage.visibility = View.GONE
+                binding.tvTimestamp.visibility = View.GONE
+            } else {
+                binding.tvLastMessage.visibility = View.VISIBLE
+                binding.tvTimestamp.visibility = View.VISIBLE
+                binding.tvLastMessage.text = conversation.session.lastMessage
+                binding.tvTimestamp.text = formatTimestamp(conversation.session.lastMessageTimestamp)
+            }
 
             itemView.setOnClickListener {
                 val intent = Intent(context, ChatActivity::class.java).apply {
-                    putExtra("USER_ID", user.uid)
-                    putExtra("USER_NAME", user.username)
+                    putExtra("USER_ID", conversation.otherUser?.uid)
+                    putExtra("USER_NAME", conversation.otherUser?.username)
                 }
                 context.startActivity(intent)
             }
@@ -70,13 +97,22 @@ class ConversationAdapter(private val context: Context) :
     inner class GroupViewHolder(private val binding: ItemGroupBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(conversation: Conversation.GroupConversation) {
-            val group = conversation.group
-            binding.tvGroupName.text = group.name
+            binding.tvGroupName.text = conversation.group.name
+
+            if (conversation.group.lastMessage.isNullOrEmpty()) {
+                binding.tvLastMessage.visibility = View.GONE
+                binding.tvTimestamp.visibility = View.GONE
+            } else {
+                binding.tvLastMessage.visibility = View.VISIBLE
+                binding.tvTimestamp.visibility = View.VISIBLE
+                binding.tvLastMessage.text = conversation.group.lastMessage
+                binding.tvTimestamp.text = formatTimestamp(conversation.group.lastMessageTimestamp)
+            }
 
             itemView.setOnClickListener {
                 val intent = Intent(context, GroupChatActivity::class.java).apply {
-                    putExtra("GROUP_ID", group.groupId)
-                    putExtra("GROUP_NAME", group.name)
+                    putExtra("GROUP_ID", conversation.group.groupId)
+                    putExtra("GROUP_NAME", conversation.group.name)
                 }
                 context.startActivity(intent)
             }
@@ -87,8 +123,8 @@ class ConversationAdapter(private val context: Context) :
 class ConversationDiffCallback : DiffUtil.ItemCallback<Conversation>() {
     override fun areItemsTheSame(oldItem: Conversation, newItem: Conversation): Boolean {
         return when {
-            oldItem is Conversation.UserConversation && newItem is Conversation.UserConversation ->
-                oldItem.user.uid == newItem.user.uid
+            oldItem is Conversation.ChatSessionConversation && newItem is Conversation.ChatSessionConversation ->
+                oldItem.otherUser?.uid == newItem.otherUser?.uid
             oldItem is Conversation.GroupConversation && newItem is Conversation.GroupConversation ->
                 oldItem.group.groupId == newItem.group.groupId
             else -> false

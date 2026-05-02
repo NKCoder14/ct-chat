@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:2:1-44:12
+ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:2:1-46:12
 MERGED from [androidx.databinding:databinding-adapters:8.12.3] C:\Users\Nitesh Kalyanshetti\.gradle\caches\8.13\transforms\8443e9746bf5a341c1f89691e9f7a551\transformed\databinding-adapters-8.12.3\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:8.12.3] C:\Users\Nitesh Kalyanshetti\.gradle\caches\8.13\transforms\9a7e6b03631360bd10c883b27f044022\transformed\databinding-ktx-8.12.3\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:8.12.3] C:\Users\Nitesh Kalyanshetti\.gradle\caches\8.13\transforms\fcea951ebc9aa546abd6cde8f4cdd851\transformed\databinding-runtime-8.12.3\AndroidManifest.xml:2:1-7:12
@@ -96,8 +96,8 @@ MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] C:\Users\Nitesh Kaly
 	android:name
 		ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:7:5-42:19
-INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:7:5-42:19
+ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:7:5-45:19
+INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:7:5-45:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Nitesh Kalyanshetti\.gradle\caches\8.13\transforms\4fdde04ddc8394321e939a46d36f644a\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Nitesh Kalyanshetti\.gradle\caches\8.13\transforms\4fdde04ddc8394321e939a46d36f644a\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Nitesh Kalyanshetti\.gradle\caches\8.13\transforms\9220786db0142e1742de61b7ec3dce64\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -206,6 +206,12 @@ ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\mai
 		ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:41:13-37
 	android:name
 		ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:40:13-59
+activity#com.example.ctchat.activities.ProfileActivity
+ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:42:9-44:40
+	android:exported
+		ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:44:13-37
+	android:name
+		ADDED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml:43:13-55
 uses-sdk
 INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Nitesh Kalyanshetti\AndroidStudioProjects\CTChat\app\src\main\AndroidManifest.xml

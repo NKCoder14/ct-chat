@@ -19,12 +19,21 @@ public abstract class ItemUserBinding extends ViewDataBinding {
   public final CircleImageView imgProfile;
 
   @NonNull
+  public final TextView tvLastMessage;
+
+  @NonNull
+  public final TextView tvTimestamp;
+
+  @NonNull
   public final TextView tvUsername;
 
   protected ItemUserBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CircleImageView imgProfile, TextView tvUsername) {
+      CircleImageView imgProfile, TextView tvLastMessage, TextView tvTimestamp,
+      TextView tvUsername) {
     super(_bindingComponent, _root, _localFieldCount);
     this.imgProfile = imgProfile;
+    this.tvLastMessage = tvLastMessage;
+    this.tvTimestamp = tvTimestamp;
     this.tvUsername = tvUsername;
   }
 

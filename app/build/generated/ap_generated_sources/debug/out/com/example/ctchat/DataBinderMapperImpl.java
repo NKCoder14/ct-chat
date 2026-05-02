@@ -11,6 +11,7 @@ import com.example.ctchat.databinding.ActivityCreateGroupBindingImpl;
 import com.example.ctchat.databinding.ActivityGroupChatBindingImpl;
 import com.example.ctchat.databinding.ActivityLoginBindingImpl;
 import com.example.ctchat.databinding.ActivityMainBindingImpl;
+import com.example.ctchat.databinding.ActivityProfileBindingImpl;
 import com.example.ctchat.databinding.ActivityRegisterBindingImpl;
 import com.example.ctchat.databinding.FragmentCallsBindingImpl;
 import com.example.ctchat.databinding.FragmentChatsBindingImpl;
@@ -41,25 +42,27 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_ACTIVITYMAIN = 5;
 
-  private static final int LAYOUT_ACTIVITYREGISTER = 6;
+  private static final int LAYOUT_ACTIVITYPROFILE = 6;
 
-  private static final int LAYOUT_FRAGMENTCALLS = 7;
+  private static final int LAYOUT_ACTIVITYREGISTER = 7;
 
-  private static final int LAYOUT_FRAGMENTCHATS = 8;
+  private static final int LAYOUT_FRAGMENTCALLS = 8;
 
-  private static final int LAYOUT_FRAGMENTSTATUS = 9;
+  private static final int LAYOUT_FRAGMENTCHATS = 9;
 
-  private static final int LAYOUT_ITEMGROUP = 10;
+  private static final int LAYOUT_FRAGMENTSTATUS = 10;
 
-  private static final int LAYOUT_ITEMRECEIVEDMESSAGE = 11;
+  private static final int LAYOUT_ITEMGROUP = 11;
 
-  private static final int LAYOUT_ITEMSENTMESSAGE = 12;
+  private static final int LAYOUT_ITEMRECEIVEDMESSAGE = 12;
 
-  private static final int LAYOUT_ITEMUSER = 13;
+  private static final int LAYOUT_ITEMSENTMESSAGE = 13;
 
-  private static final int LAYOUT_ITEMUSERSELECTABLE = 14;
+  private static final int LAYOUT_ITEMUSER = 14;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(14);
+  private static final int LAYOUT_ITEMUSERSELECTABLE = 15;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(15);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.ctchat.R.layout.activity_chat, LAYOUT_ACTIVITYCHAT);
@@ -67,6 +70,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.ctchat.R.layout.activity_group_chat, LAYOUT_ACTIVITYGROUPCHAT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.ctchat.R.layout.activity_login, LAYOUT_ACTIVITYLOGIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.ctchat.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.ctchat.R.layout.activity_profile, LAYOUT_ACTIVITYPROFILE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.ctchat.R.layout.activity_register, LAYOUT_ACTIVITYREGISTER);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.ctchat.R.layout.fragment_calls, LAYOUT_FRAGMENTCALLS);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.ctchat.R.layout.fragment_chats, LAYOUT_FRAGMENTCHATS);
@@ -116,6 +120,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new ActivityMainBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for activity_main is invalid. Received: " + tag);
+        }
+        case  LAYOUT_ACTIVITYPROFILE: {
+          if ("layout/activity_profile_0".equals(tag)) {
+            return new ActivityProfileBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_profile is invalid. Received: " + tag);
         }
         case  LAYOUT_ACTIVITYREGISTER: {
           if ("layout/activity_register_0".equals(tag)) {
@@ -224,7 +234,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(14);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(15);
 
     static {
       sKeys.put("layout/activity_chat_0", com.example.ctchat.R.layout.activity_chat);
@@ -232,6 +242,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put("layout/activity_group_chat_0", com.example.ctchat.R.layout.activity_group_chat);
       sKeys.put("layout/activity_login_0", com.example.ctchat.R.layout.activity_login);
       sKeys.put("layout/activity_main_0", com.example.ctchat.R.layout.activity_main);
+      sKeys.put("layout/activity_profile_0", com.example.ctchat.R.layout.activity_profile);
       sKeys.put("layout/activity_register_0", com.example.ctchat.R.layout.activity_register);
       sKeys.put("layout/fragment_calls_0", com.example.ctchat.R.layout.fragment_calls);
       sKeys.put("layout/fragment_chats_0", com.example.ctchat.R.layout.fragment_chats);

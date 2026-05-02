@@ -21,11 +21,20 @@ public abstract class ItemGroupBinding extends ViewDataBinding {
   @NonNull
   public final TextView tvGroupName;
 
+  @NonNull
+  public final TextView tvLastMessage;
+
+  @NonNull
+  public final TextView tvTimestamp;
+
   protected ItemGroupBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CircleImageView imgProfile, TextView tvGroupName) {
+      CircleImageView imgProfile, TextView tvGroupName, TextView tvLastMessage,
+      TextView tvTimestamp) {
     super(_bindingComponent, _root, _localFieldCount);
     this.imgProfile = imgProfile;
     this.tvGroupName = tvGroupName;
+    this.tvLastMessage = tvLastMessage;
+    this.tvTimestamp = tvTimestamp;
   }
 
   @NonNull
