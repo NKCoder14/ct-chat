@@ -6,7 +6,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -20,9 +23,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/sent_message_background"
-            android:padding="12dp"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/sent_message_text"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -34,9 +41,9 @@
             android:id="@+id/tvTimestamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="12sp"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/timestamp_color"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="@id/tvMessage"
             app:layout_constraintTop_toBottomOf="@id/tvMessage"
             tools:text="6:30 PM" />

@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Base.Theme.CTChat" parent="Theme.Material3.DayNight.NoActionBar">
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="background_color">#121212</color>
+    <color name="custom_orange">#82B1FF</color>
+    <color name="divider_color">#2C2C2E</color>
+    <color name="input_background">#2C2C2E</color>
+    <color name="input_stroke">#3C3C3E</color>
+    <color name="navigation_bar_color">#121212</color>
+    <color name="on_primary_color">#002B72</color>
+    <color name="on_surface_color">#E6E1E5</color>
+    <color name="on_surface_variant">#CAC4D0</color>
+    <color name="outline_color">#3C3C3E</color>
+    <color name="outline_variant">#49454F</color>
+    <color name="primary_color">#82B1FF</color>
+    <color name="primary_dark_color">#448AFF</color>
+    <color name="primary_light_color">#1A3A6E</color>
+    <color name="received_message_background">#2C2C2E</color>
+    <color name="received_message_text">#E6E1E5</color>
+    <color name="ripple_color">#1A82B1FF</color>
+    <color name="search_bar_background">#2C2C2E</color>
+    <color name="search_bar_hint">#8E8E93</color>
+    <color name="secondary_color">#D0BCFF</color>
+    <color name="secondary_container">#4F378B</color>
+    <color name="sent_message_background">#448AFF</color>
+    <color name="sent_message_text">#FFFFFF</color>
+    <color name="status_bar_color">#121212</color>
+    <color name="surface_color">#1E1E1E</color>
+    <color name="surface_variant">#2C2C2E</color>
+    <color name="tab_indicator_color">#82B1FF</color>
+    <color name="tab_selected_text_color">#82B1FF</color>
+    <color name="tab_text_color">#CAC4D0</color>
+    <color name="timestamp_color">#8E8E93</color>
+    <color name="toolbar_background">#1E1E1E</color>
+    <color name="toolbar_icon_color">#CAC4D0</color>
+    <color name="toolbar_title_color">#E6E1E5</color>
+    <style name="Theme.CTChat" parent="Theme.Material3.Dark.NoActionBar">
         
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_dark_color</item>
+        <item name="colorOnPrimary">@color/on_primary_color</item>
+        <item name="colorPrimaryContainer">@color/primary_light_color</item>
+
         
+        <item name="colorSecondary">@color/secondary_color</item>
+        <item name="colorSecondaryContainer">@color/secondary_container</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        
+        <item name="colorSurface">@color/surface_color</item>
+        <item name="colorOnSurface">@color/on_surface_color</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+
+        
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+        <item name="android:windowLightStatusBar" ns1:targetApi="m">false</item>
+        <item name="android:navigationBarColor">@color/navigation_bar_color</item>
+        <item name="android:windowLightNavigationBar" ns1:targetApi="o_mr1">false</item>
+
+        
+        <item name="colorOutline">@color/outline_color</item>
+
+        
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.CTChat.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.CTChat.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.CTChat.LargeComponent</item>
+
+        
+        <item name="materialButtonStyle">@style/Widget.CTChat.Button</item>
     </style>
+    <style name="Theme.CTChat.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar"/>
+    <style name="Theme.CTChat.PopupOverlay" parent="ThemeOverlay.Material3.Dark"/>
 </resources>

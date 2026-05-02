@@ -15,9 +15,11 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.toolbar, 1);
-        sViewsWithIds.put(R.id.tabLayout, 2);
-        sViewsWithIds.put(R.id.viewPager, 3);
-        sViewsWithIds.put(R.id.fabNewGroup, 4);
+        sViewsWithIds.put(R.id.etSearch, 2);
+        sViewsWithIds.put(R.id.toolbarDivider, 3);
+        sViewsWithIds.put(R.id.tabLayout, 4);
+        sViewsWithIds.put(R.id.viewPager, 5);
+        sViewsWithIds.put(R.id.fabNewGroup, 6);
     }
     // views
     @NonNull
@@ -28,14 +30,16 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 7, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[4]
-            , (com.google.android.material.tabs.TabLayout) bindings[2]
-            , (androidx.appcompat.widget.Toolbar) bindings[1]
-            , (androidx.viewpager2.widget.ViewPager2) bindings[3]
+            , (android.widget.EditText) bindings[2]
+            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[6]
+            , (com.google.android.material.tabs.TabLayout) bindings[4]
+            , (com.google.android.material.appbar.MaterialToolbar) bindings[1]
+            , (android.view.View) bindings[3]
+            , (androidx.viewpager2.widget.ViewPager2) bindings[5]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);

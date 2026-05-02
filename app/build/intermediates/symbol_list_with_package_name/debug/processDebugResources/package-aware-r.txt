@@ -1366,6 +1366,7 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color background_color
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1443,6 +1444,7 @@ color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
+color divider_color
 color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
@@ -1450,6 +1452,8 @@ color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color ic_splash_logo_background
+color input_background
+color input_stroke
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2101,12 +2105,19 @@ color mtrl_textinput_disabled_color
 color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
+color navigation_bar_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color on_primary_color
+color on_surface_color
+color on_surface_variant
+color outline_color
+color outline_variant
 color primary_color
 color primary_dark_color
 color primary_dark_material_dark
 color primary_dark_material_light
+color primary_light_color
 color primary_material_dark
 color primary_material_light
 color primary_text_default_material_dark
@@ -2114,19 +2125,36 @@ color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
 color received_message_background
+color received_message_text
+color ripple_color
 color ripple_material_dark
 color ripple_material_light
+color search_bar_background
+color search_bar_hint
+color secondary_color
+color secondary_container
 color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
 color sent_message_background
+color sent_message_text
+color status_bar_color
+color surface_color
+color surface_variant
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color tab_indicator_color
+color tab_selected_text_color
+color tab_text_color
+color timestamp_color
+color toolbar_background
+color toolbar_icon_color
+color toolbar_title_color
 color tooltip_background_dark
 color tooltip_background_light
 color white
@@ -3024,6 +3052,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable card_background
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3053,6 +3082,7 @@ drawable design_snackbar_background
 drawable edit_text_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable gradient_background
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3099,6 +3129,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable message_input_background
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3151,6 +3182,9 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable received_message_background
+drawable ripple_rounded
+drawable search_bar_background
+drawable send_button_background
 drawable sent_message_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3225,7 +3259,6 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_new_group
 id action_profile
-id action_search
 id action_text
 id actions
 id activity_chooser_view_content
@@ -3333,6 +3366,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id divider
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -3358,6 +3392,7 @@ id enterAlwaysCollapsed
 id etEmail
 id etGroupName
 id etPassword
+id etSearch
 id etUsername
 id exitUntilCollapsed
 id expand_activities_button
@@ -3413,6 +3448,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id ivLogo
 id ivProfileImage
 id jumpToEnd
 id jumpToStart
@@ -3455,6 +3491,7 @@ id material_value_index
 id matrix
 id message
 id messageBox
+id messageInputContainer
 id middle
 id mini
 id month_grid
@@ -3543,6 +3580,7 @@ id pin
 id position
 id postLayout
 id pressed
+id profileImageCard
 id progressBar
 id progress_circular
 id progress_horizontal
@@ -3661,6 +3699,7 @@ id titleDividerNoCustom
 id title_template
 id toggle
 id toolbar
+id toolbarDivider
 id top
 id topPanel
 id touch_outside
@@ -3678,6 +3717,7 @@ id tvLastMessage
 id tvMessage
 id tvSelectMembers
 id tvSenderName
+id tvSubtitle
 id tvTimestamp
 id tvTitle
 id tvUsername
@@ -4213,7 +4253,6 @@ style Base_Theme_AppCompat_Light_Dialog_Alert
 style Base_Theme_AppCompat_Light_Dialog_FixedSize
 style Base_Theme_AppCompat_Light_Dialog_MinWidth
 style Base_Theme_AppCompat_Light_DialogWhenLarge
-style Base_Theme_CTChat
 style Base_Theme_Material3_Dark
 style Base_Theme_Material3_Dark_BottomSheetDialog
 style Base_Theme_Material3_Dark_Dialog
@@ -4473,6 +4512,9 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
+style ShapeAppearance_CTChat_LargeComponent
+style ShapeAppearance_CTChat_MediumComponent
+style ShapeAppearance_CTChat_SmallComponent
 style ShapeAppearance_M3_Comp_Badge_Large_Shape
 style ShapeAppearance_M3_Comp_Badge_Shape
 style ShapeAppearance_M3_Comp_BottomAppBar_Container_Shape
@@ -4951,6 +4993,9 @@ style Widget_AppCompat_TextView
 style Widget_AppCompat_TextView_SpinnerItem
 style Widget_AppCompat_Toolbar
 style Widget_AppCompat_Toolbar_Button_Navigation
+style Widget_CTChat_Button
+style Widget_CTChat_TextInputLayout
+style Widget_CTChat_Toolbar
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 style Widget_Design_AppBarLayout

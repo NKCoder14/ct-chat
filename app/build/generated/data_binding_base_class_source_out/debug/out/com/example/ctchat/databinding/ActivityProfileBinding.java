@@ -7,11 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.example.ctchat.R;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -32,6 +33,9 @@ public abstract class ActivityProfileBinding extends ViewDataBinding {
   public final CircleImageView ivProfileImage;
 
   @NonNull
+  public final MaterialCardView profileImageCard;
+
+  @NonNull
   public final ProgressBar progressBar;
 
   @NonNull
@@ -41,21 +45,27 @@ public abstract class ActivityProfileBinding extends ViewDataBinding {
   public final TextInputLayout tilUsername;
 
   @NonNull
-  public final Toolbar toolbar;
+  public final MaterialToolbar toolbar;
+
+  @NonNull
+  public final View toolbarDivider;
 
   protected ActivityProfileBinding(Object _bindingComponent, View _root, int _localFieldCount,
       MaterialButton btnSave, TextInputEditText etEmail, TextInputEditText etUsername,
-      CircleImageView ivProfileImage, ProgressBar progressBar, TextInputLayout tilEmail,
-      TextInputLayout tilUsername, Toolbar toolbar) {
+      CircleImageView ivProfileImage, MaterialCardView profileImageCard, ProgressBar progressBar,
+      TextInputLayout tilEmail, TextInputLayout tilUsername, MaterialToolbar toolbar,
+      View toolbarDivider) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnSave = btnSave;
     this.etEmail = etEmail;
     this.etUsername = etUsername;
     this.ivProfileImage = ivProfileImage;
+    this.profileImageCard = profileImageCard;
     this.progressBar = progressBar;
     this.tilEmail = tilEmail;
     this.tilUsername = tilUsername;
     this.toolbar = toolbar;
+    this.toolbarDivider = toolbarDivider;
   }
 
   @NonNull

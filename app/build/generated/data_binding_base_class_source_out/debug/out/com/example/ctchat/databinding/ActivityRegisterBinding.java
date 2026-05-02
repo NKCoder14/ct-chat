@@ -4,13 +4,13 @@ package com.example.ctchat.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.example.ctchat.R;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.Deprecated;
@@ -18,7 +18,7 @@ import java.lang.Object;
 
 public abstract class ActivityRegisterBinding extends ViewDataBinding {
   @NonNull
-  public final Button btnRegister;
+  public final MaterialButton btnRegister;
 
   @NonNull
   public final TextInputEditText etEmail;
@@ -39,12 +39,15 @@ public abstract class ActivityRegisterBinding extends ViewDataBinding {
   public final TextInputLayout tilUsername;
 
   @NonNull
+  public final TextView tvSubtitle;
+
+  @NonNull
   public final TextView tvTitle;
 
   protected ActivityRegisterBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button btnRegister, TextInputEditText etEmail, TextInputEditText etPassword,
+      MaterialButton btnRegister, TextInputEditText etEmail, TextInputEditText etPassword,
       TextInputEditText etUsername, TextInputLayout tilEmail, TextInputLayout tilPassword,
-      TextInputLayout tilUsername, TextView tvTitle) {
+      TextInputLayout tilUsername, TextView tvSubtitle, TextView tvTitle) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnRegister = btnRegister;
     this.etEmail = etEmail;
@@ -53,6 +56,7 @@ public abstract class ActivityRegisterBinding extends ViewDataBinding {
     this.tilEmail = tilEmail;
     this.tilPassword = tilPassword;
     this.tilUsername = tilUsername;
+    this.tvSubtitle = tvSubtitle;
     this.tvTitle = tvTitle;
   }
 

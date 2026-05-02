@@ -6,13 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.ctchat.R;
+import com.google.android.material.appbar.MaterialToolbar;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -27,15 +28,24 @@ public abstract class ActivityGroupChatBinding extends ViewDataBinding {
   public final EditText messageBox;
 
   @NonNull
-  public final Toolbar toolbar;
+  public final LinearLayout messageInputContainer;
+
+  @NonNull
+  public final MaterialToolbar toolbar;
+
+  @NonNull
+  public final View toolbarDivider;
 
   protected ActivityGroupChatBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageView btnSend, RecyclerView chatRecyclerView, EditText messageBox, Toolbar toolbar) {
+      ImageView btnSend, RecyclerView chatRecyclerView, EditText messageBox,
+      LinearLayout messageInputContainer, MaterialToolbar toolbar, View toolbarDivider) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnSend = btnSend;
     this.chatRecyclerView = chatRecyclerView;
     this.messageBox = messageBox;
+    this.messageInputContainer = messageInputContainer;
     this.toolbar = toolbar;
+    this.toolbarDivider = toolbarDivider;
   }
 
   @NonNull

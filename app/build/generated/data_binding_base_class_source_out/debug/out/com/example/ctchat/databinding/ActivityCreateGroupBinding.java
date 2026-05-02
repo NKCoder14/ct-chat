@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.ctchat.R;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -27,13 +27,16 @@ public abstract class ActivityCreateGroupBinding extends ViewDataBinding {
   public final MaterialButton btnCreateGroup;
 
   @NonNull
+  public final View divider;
+
+  @NonNull
   public final TextInputEditText etGroupName;
 
   @NonNull
   public final TextInputLayout tilGroupName;
 
   @NonNull
-  public final Toolbar toolbar;
+  public final MaterialToolbar toolbar;
 
   @NonNull
   public final TextView tvSelectMembers;
@@ -42,12 +45,13 @@ public abstract class ActivityCreateGroupBinding extends ViewDataBinding {
   public final RecyclerView usersRecyclerView;
 
   protected ActivityCreateGroupBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      AppBarLayout appBarLayout, MaterialButton btnCreateGroup, TextInputEditText etGroupName,
-      TextInputLayout tilGroupName, Toolbar toolbar, TextView tvSelectMembers,
-      RecyclerView usersRecyclerView) {
+      AppBarLayout appBarLayout, MaterialButton btnCreateGroup, View divider,
+      TextInputEditText etGroupName, TextInputLayout tilGroupName, MaterialToolbar toolbar,
+      TextView tvSelectMembers, RecyclerView usersRecyclerView) {
     super(_bindingComponent, _root, _localFieldCount);
     this.appBarLayout = appBarLayout;
     this.btnCreateGroup = btnCreateGroup;
+    this.divider = divider;
     this.etGroupName = etGroupName;
     this.tilGroupName = tilGroupName;
     this.toolbar = toolbar;

@@ -1,22 +1,93 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.CTChat" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    <!-- Modern Material 3 Theme -->
+    <style name="Theme.CTChat" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary brand color -->
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryVariant">@color/primary_dark_color</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/on_primary_color</item>
+        <item name="colorPrimaryContainer">@color/primary_light_color</item>
 
-        <item name="colorSecondary">@color/primary_color</item>
-        <item name="colorSecondaryVariant">@color/primary_dark_color</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/secondary_color</item>
+        <item name="colorSecondaryContainer">@color/secondary_container</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Surface colors -->
+        <item name="colorSurface">@color/surface_color</item>
+        <item name="colorOnSurface">@color/on_surface_color</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+
+        <!-- Light status bar with dark icons -->
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:navigationBarColor">@color/navigation_bar_color</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <!-- Outline -->
+        <item name="colorOutline">@color/outline_color</item>
+
+        <!-- Shape overrides for rounded corners -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.CTChat.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.CTChat.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.CTChat.LargeComponent</item>
+
+        <!-- Default button style -->
+        <item name="materialButtonStyle">@style/Widget.CTChat.Button</item>
     </style>
 
-    <style name="Theme.CTChat.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="Theme.CTChat.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- AppBar Overlay -->
+    <style name="Theme.CTChat.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+    <style name="Theme.CTChat.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
 
+    <!-- Splash Screen -->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/primary_color</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_splash_logo</item>
         <item name="postSplashScreenTheme">@style/Theme.CTChat</item>
     </style>
-</resources>
 
+    <!-- Rounded shape appearances -->
+    <style name="ShapeAppearance.CTChat.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="ShapeAppearance.CTChat.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="ShapeAppearance.CTChat.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <!-- Modern Button Style -->
+    <style name="Widget.CTChat.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Modern Outlined Text Input -->
+    <style name="Widget.CTChat.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxStrokeColor">@color/outline_color</item>
+        <item name="hintTextColor">@color/primary_color</item>
+    </style>
+
+    <!-- Modern Toolbar Style -->
+    <style name="Widget.CTChat.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/toolbar_background</item>
+        <item name="titleTextColor">@color/toolbar_title_color</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+</resources>

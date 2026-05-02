@@ -2,10 +2,11 @@ package com.example.ctchat.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import com.example.ctchat.R
 import com.example.ctchat.adapters.ViewPagerAdapter
@@ -40,30 +41,29 @@ class MainActivity : AppCompatActivity() {
         binding.fabNewGroup.setOnClickListener {
             startActivity(Intent(this, CreateGroupActivity::class.java))
         }
+
+        // Search bar text listener
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val fragment = supportFragmentManager.fragments.find { it is ChatsFragment }
+                (fragment as? ChatsFragment)?.filterUsers(s?.toString())
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
-
-        val searchItem = menu?.findItem(R.id.action_search)
-        val searchView = searchItem?.actionView as? SearchView
-
-        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                val fragment = supportFragmentManager.fragments.find { it is ChatsFragment }
-                (fragment as? ChatsFragment)?.filterUsers(newText)
-                return true
-            }
-        })
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.action_new_group -> {
+                startActivity(Intent(this, CreateGroupActivity::class.java))
+                return true
+            }
             R.id.action_profile -> {
                 startActivity(Intent(this, ProfileActivity::class.java))
                 return true

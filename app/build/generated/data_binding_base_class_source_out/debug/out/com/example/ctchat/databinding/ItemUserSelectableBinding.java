@@ -4,20 +4,20 @@ package com.example.ctchat.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.example.ctchat.R;
+import com.google.android.material.checkbox.MaterialCheckBox;
 import de.hdodenhof.circleimageview.CircleImageView;
 import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class ItemUserSelectableBinding extends ViewDataBinding {
   @NonNull
-  public final CheckBox checkboxSelectUser;
+  public final MaterialCheckBox checkboxSelectUser;
 
   @NonNull
   public final CircleImageView imgProfile;
@@ -26,7 +26,7 @@ public abstract class ItemUserSelectableBinding extends ViewDataBinding {
   public final TextView tvUsername;
 
   protected ItemUserSelectableBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CheckBox checkboxSelectUser, CircleImageView imgProfile, TextView tvUsername) {
+      MaterialCheckBox checkboxSelectUser, CircleImageView imgProfile, TextView tvUsername) {
     super(_bindingComponent, _root, _localFieldCount);
     this.checkboxSelectUser = checkboxSelectUser;
     this.imgProfile = imgProfile;

@@ -16,11 +16,12 @@ public class ActivityCreateGroupBindingImpl extends ActivityCreateGroupBinding  
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.appBarLayout, 1);
         sViewsWithIds.put(R.id.toolbar, 2);
-        sViewsWithIds.put(R.id.tilGroupName, 3);
-        sViewsWithIds.put(R.id.etGroupName, 4);
-        sViewsWithIds.put(R.id.tvSelectMembers, 5);
-        sViewsWithIds.put(R.id.usersRecyclerView, 6);
-        sViewsWithIds.put(R.id.btnCreateGroup, 7);
+        sViewsWithIds.put(R.id.divider, 3);
+        sViewsWithIds.put(R.id.tilGroupName, 4);
+        sViewsWithIds.put(R.id.etGroupName, 5);
+        sViewsWithIds.put(R.id.tvSelectMembers, 6);
+        sViewsWithIds.put(R.id.usersRecyclerView, 7);
+        sViewsWithIds.put(R.id.btnCreateGroup, 8);
     }
     // views
     @NonNull
@@ -31,17 +32,18 @@ public class ActivityCreateGroupBindingImpl extends ActivityCreateGroupBinding  
     // Inverse Binding Event Handlers
 
     public ActivityCreateGroupBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 8, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 9, sIncludes, sViewsWithIds));
     }
     private ActivityCreateGroupBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (com.google.android.material.appbar.AppBarLayout) bindings[1]
-            , (com.google.android.material.button.MaterialButton) bindings[7]
-            , (com.google.android.material.textfield.TextInputEditText) bindings[4]
-            , (com.google.android.material.textfield.TextInputLayout) bindings[3]
-            , (androidx.appcompat.widget.Toolbar) bindings[2]
-            , (android.widget.TextView) bindings[5]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[6]
+            , (com.google.android.material.button.MaterialButton) bindings[8]
+            , (android.view.View) bindings[3]
+            , (com.google.android.material.textfield.TextInputEditText) bindings[5]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[4]
+            , (com.google.android.material.appbar.MaterialToolbar) bindings[2]
+            , (android.widget.TextView) bindings[6]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[7]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);

@@ -1365,6 +1365,7 @@ int color accent_material_dark 0x7f050019
 int color accent_material_light 0x7f05001a
 int color androidx_core_ripple_material_light 0x7f05001b
 int color androidx_core_secondary_text_default_material_light 0x7f05001c
+int color background_color 0x7f050330
 int color background_floating_material_dark 0x7f05001d
 int color background_floating_material_light 0x7f05001e
 int color background_material_dark 0x7f05001f
@@ -1442,6 +1443,7 @@ int color dim_foreground_disabled_material_dark 0x7f050066
 int color dim_foreground_disabled_material_light 0x7f050067
 int color dim_foreground_material_dark 0x7f050068
 int color dim_foreground_material_light 0x7f050069
+int color divider_color 0x7f050319
 int color error_color_material_dark 0x7f05006a
 int color error_color_material_light 0x7f05006b
 int color foreground_material_dark 0x7f05006c
@@ -1449,6 +1451,8 @@ int color foreground_material_light 0x7f05006d
 int color highlighted_text_material_dark 0x7f05006e
 int color highlighted_text_material_light 0x7f05006f
 int color ic_splash_logo_background 0x7f050070
+int color input_background 0x7f05031a
+int color input_stroke 0x7f05031b
 int color m3_appbar_overlay_color 0x7f050071
 int color m3_assist_chip_icon_tint_color 0x7f050072
 int color m3_assist_chip_stroke_color 0x7f050073
@@ -2100,12 +2104,19 @@ int color mtrl_textinput_disabled_color 0x7f0502f8
 int color mtrl_textinput_filled_box_default_background_color 0x7f0502f9
 int color mtrl_textinput_focused_box_stroke_color 0x7f0502fa
 int color mtrl_textinput_hovered_box_stroke_color 0x7f0502fb
+int color navigation_bar_color 0x7f050331
 int color notification_action_color_filter 0x7f0502fc
 int color notification_icon_bg_color 0x7f0502fd
+int color on_primary_color 0x7f05031c
+int color on_surface_color 0x7f05031d
+int color on_surface_variant 0x7f05031e
+int color outline_color 0x7f05031f
+int color outline_variant 0x7f050320
 int color primary_color 0x7f0502fe
 int color primary_dark_color 0x7f0502ff
 int color primary_dark_material_dark 0x7f050300
 int color primary_dark_material_light 0x7f050301
+int color primary_light_color 0x7f050321
 int color primary_material_dark 0x7f050302
 int color primary_material_light 0x7f050303
 int color primary_text_default_material_dark 0x7f050304
@@ -2113,19 +2124,36 @@ int color primary_text_default_material_light 0x7f050305
 int color primary_text_disabled_material_dark 0x7f050306
 int color primary_text_disabled_material_light 0x7f050307
 int color received_message_background 0x7f050308
+int color received_message_text 0x7f050322
+int color ripple_color 0x7f050323
 int color ripple_material_dark 0x7f050309
 int color ripple_material_light 0x7f05030a
+int color search_bar_background 0x7f050332
+int color search_bar_hint 0x7f050333
+int color secondary_color 0x7f050324
+int color secondary_container 0x7f050325
 int color secondary_text_default_material_dark 0x7f05030b
 int color secondary_text_default_material_light 0x7f05030c
 int color secondary_text_disabled_material_dark 0x7f05030d
 int color secondary_text_disabled_material_light 0x7f05030e
 int color sent_message_background 0x7f05030f
+int color sent_message_text 0x7f050326
+int color status_bar_color 0x7f050327
+int color surface_color 0x7f050328
+int color surface_variant 0x7f050329
 int color switch_thumb_disabled_material_dark 0x7f050310
 int color switch_thumb_disabled_material_light 0x7f050311
 int color switch_thumb_material_dark 0x7f050312
 int color switch_thumb_material_light 0x7f050313
 int color switch_thumb_normal_material_dark 0x7f050314
 int color switch_thumb_normal_material_light 0x7f050315
+int color tab_indicator_color 0x7f05032a
+int color tab_selected_text_color 0x7f05032b
+int color tab_text_color 0x7f05032c
+int color timestamp_color 0x7f05032d
+int color toolbar_background 0x7f05032e
+int color toolbar_icon_color 0x7f050334
+int color toolbar_title_color 0x7f05032f
 int color tooltip_background_dark 0x7f050316
 int color tooltip_background_light 0x7f050317
 int color white 0x7f050318
@@ -3023,6 +3051,7 @@ int drawable btn_radio_off_mtrl 0x7f07007e
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f07007f
 int drawable btn_radio_on_mtrl 0x7f070080
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f070081
+int drawable card_background 0x7f070105
 int drawable common_full_open_on_phone 0x7f070082
 int drawable common_google_signin_btn_icon_dark 0x7f070083
 int drawable common_google_signin_btn_icon_dark_focused 0x7f070084
@@ -3052,6 +3081,7 @@ int drawable design_snackbar_background 0x7f07009b
 int drawable edit_text_background 0x7f07009c
 int drawable googleg_disabled_color_18 0x7f07009d
 int drawable googleg_standard_color_18 0x7f07009e
+int drawable gradient_background 0x7f070106
 int drawable ic_arrow_back_black_24 0x7f07009f
 int drawable ic_call_answer 0x7f0700a0
 int drawable ic_call_answer_low 0x7f0700a1
@@ -3098,6 +3128,7 @@ int drawable material_ic_keyboard_arrow_previous_black_24dp 0x7f0700c9
 int drawable material_ic_keyboard_arrow_right_black_24dp 0x7f0700ca
 int drawable material_ic_menu_arrow_down_black_24dp 0x7f0700cb
 int drawable material_ic_menu_arrow_up_black_24dp 0x7f0700cc
+int drawable message_input_background 0x7f070107
 int drawable mtrl_bottomsheet_drag_handle 0x7f0700cd
 int drawable mtrl_checkbox_button 0x7f0700ce
 int drawable mtrl_checkbox_button_checked_unchecked 0x7f0700cf
@@ -3150,6 +3181,9 @@ int drawable notification_template_icon_low_bg 0x7f0700fd
 int drawable notification_tile_bg 0x7f0700fe
 int drawable notify_panel_notification_icon_bg 0x7f0700ff
 int drawable received_message_background 0x7f070100
+int drawable ripple_rounded 0x7f070108
+int drawable search_bar_background 0x7f07010a
+int drawable send_button_background 0x7f070109
 int drawable sent_message_background 0x7f070101
 int drawable test_level_drawable 0x7f070102
 int drawable tooltip_frame_dark 0x7f070103
@@ -3224,7 +3258,6 @@ int id action_mode_bar_stub 0x7f080042
 int id action_mode_close_button 0x7f080043
 int id action_new_group 0x7f080044
 int id action_profile 0x7f080045
-int id action_search 0x7f080046
 int id action_text 0x7f080047
 int id actions 0x7f080048
 int id activity_chooser_view_content 0x7f080049
@@ -3332,6 +3365,7 @@ int id disableIntraAutoTransition 0x7f0800ae
 int id disablePostScroll 0x7f0800af
 int id disableScroll 0x7f0800b0
 int id disjoint 0x7f0800b1
+int id divider 0x7f080228
 int id dragAnticlockwise 0x7f0800b2
 int id dragClockwise 0x7f0800b3
 int id dragDown 0x7f0800b4
@@ -3357,6 +3391,7 @@ int id enterAlwaysCollapsed 0x7f0800c7
 int id etEmail 0x7f0800c8
 int id etGroupName 0x7f0800c9
 int id etPassword 0x7f0800ca
+int id etSearch 0x7f08022e
 int id etUsername 0x7f0800cb
 int id exitUntilCollapsed 0x7f0800cc
 int id expand_activities_button 0x7f0800cd
@@ -3412,6 +3447,7 @@ int id invisible 0x7f0800fe
 int id inward 0x7f0800ff
 int id italic 0x7f080100
 int id item_touch_helper_previous_elevation 0x7f080101
+int id ivLogo 0x7f080229
 int id ivProfileImage 0x7f080102
 int id jumpToEnd 0x7f080103
 int id jumpToStart 0x7f080104
@@ -3454,6 +3490,7 @@ int id material_value_index 0x7f080128
 int id matrix 0x7f080129
 int id message 0x7f08012a
 int id messageBox 0x7f08012b
+int id messageInputContainer 0x7f08022a
 int id middle 0x7f08012c
 int id mini 0x7f08012d
 int id month_grid 0x7f08012e
@@ -3542,6 +3579,7 @@ int id pin 0x7f080180
 int id position 0x7f080181
 int id postLayout 0x7f080182
 int id pressed 0x7f080183
+int id profileImageCard 0x7f08022b
 int id progressBar 0x7f080184
 int id progress_circular 0x7f080185
 int id progress_horizontal 0x7f080186
@@ -3660,6 +3698,7 @@ int id titleDividerNoCustom 0x7f0801f6
 int id title_template 0x7f0801f7
 int id toggle 0x7f0801f8
 int id toolbar 0x7f0801f9
+int id toolbarDivider 0x7f08022c
 int id top 0x7f0801fa
 int id topPanel 0x7f0801fb
 int id touch_outside 0x7f0801fc
@@ -3677,6 +3716,7 @@ int id tvLastMessage 0x7f080207
 int id tvMessage 0x7f080208
 int id tvSelectMembers 0x7f080209
 int id tvSenderName 0x7f08020a
+int id tvSubtitle 0x7f08022d
 int id tvTimestamp 0x7f08020b
 int id tvTitle 0x7f08020c
 int id tvUsername 0x7f08020d
@@ -4212,7 +4252,6 @@ int style Base_Theme_AppCompat_Light_Dialog_Alert 0x7f120055
 int style Base_Theme_AppCompat_Light_Dialog_FixedSize 0x7f120056
 int style Base_Theme_AppCompat_Light_Dialog_MinWidth 0x7f120057
 int style Base_Theme_AppCompat_Light_DialogWhenLarge 0x7f120058
-int style Base_Theme_CTChat 0x7f120059
 int style Base_Theme_Material3_Dark 0x7f12005a
 int style Base_Theme_Material3_Dark_BottomSheetDialog 0x7f12005b
 int style Base_Theme_Material3_Dark_Dialog 0x7f12005c
@@ -4472,6 +4511,9 @@ int style RtlOverlay_Widget_AppCompat_Search_DropDown_Text 0x7f120159
 int style RtlOverlay_Widget_AppCompat_SearchView_MagIcon 0x7f12015a
 int style RtlUnderlay_Widget_AppCompat_ActionButton 0x7f12015b
 int style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow 0x7f12015c
+int style ShapeAppearance_CTChat_LargeComponent 0x7f12046b
+int style ShapeAppearance_CTChat_MediumComponent 0x7f12046c
+int style ShapeAppearance_CTChat_SmallComponent 0x7f12046d
 int style ShapeAppearance_M3_Comp_Badge_Large_Shape 0x7f12015d
 int style ShapeAppearance_M3_Comp_Badge_Shape 0x7f12015e
 int style ShapeAppearance_M3_Comp_BottomAppBar_Container_Shape 0x7f12015f
@@ -4950,6 +4992,9 @@ int style Widget_AppCompat_TextView 0x7f120337
 int style Widget_AppCompat_TextView_SpinnerItem 0x7f120338
 int style Widget_AppCompat_Toolbar 0x7f120339
 int style Widget_AppCompat_Toolbar_Button_Navigation 0x7f12033a
+int style Widget_CTChat_Button 0x7f12046e
+int style Widget_CTChat_TextInputLayout 0x7f12046f
+int style Widget_CTChat_Toolbar 0x7f120470
 int style Widget_Compat_NotificationActionContainer 0x7f12033b
 int style Widget_Compat_NotificationActionText 0x7f12033c
 int style Widget_Design_AppBarLayout 0x7f12033d

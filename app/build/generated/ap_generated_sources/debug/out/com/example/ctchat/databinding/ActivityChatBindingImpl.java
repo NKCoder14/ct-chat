@@ -15,9 +15,11 @@ public class ActivityChatBindingImpl extends ActivityChatBinding  {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.toolbar, 1);
-        sViewsWithIds.put(R.id.chatRecyclerView, 2);
-        sViewsWithIds.put(R.id.messageBox, 3);
-        sViewsWithIds.put(R.id.btnSend, 4);
+        sViewsWithIds.put(R.id.toolbarDivider, 2);
+        sViewsWithIds.put(R.id.chatRecyclerView, 3);
+        sViewsWithIds.put(R.id.messageInputContainer, 4);
+        sViewsWithIds.put(R.id.messageBox, 5);
+        sViewsWithIds.put(R.id.btnSend, 6);
     }
     // views
     @NonNull
@@ -28,14 +30,16 @@ public class ActivityChatBindingImpl extends ActivityChatBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityChatBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 7, sIncludes, sViewsWithIds));
     }
     private ActivityChatBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.ImageView) bindings[4]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[2]
-            , (android.widget.EditText) bindings[3]
-            , (androidx.appcompat.widget.Toolbar) bindings[1]
+            , (android.widget.ImageView) bindings[6]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[3]
+            , (android.widget.EditText) bindings[5]
+            , (android.widget.LinearLayout) bindings[4]
+            , (com.google.android.material.appbar.MaterialToolbar) bindings[1]
+            , (android.view.View) bindings[2]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);

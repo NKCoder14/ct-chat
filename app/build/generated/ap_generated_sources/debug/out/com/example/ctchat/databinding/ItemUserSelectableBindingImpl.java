@@ -31,7 +31,7 @@ public class ItemUserSelectableBindingImpl extends ItemUserSelectableBinding  {
     }
     private ItemUserSelectableBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.CheckBox) bindings[3]
+            , (com.google.android.material.checkbox.MaterialCheckBox) bindings[3]
             , (de.hdodenhof.circleimageview.CircleImageView) bindings[1]
             , (android.widget.TextView) bindings[2]
             );

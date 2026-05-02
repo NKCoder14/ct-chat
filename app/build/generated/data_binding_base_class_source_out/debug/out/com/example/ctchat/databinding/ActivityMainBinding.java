@@ -4,13 +4,14 @@ package com.example.ctchat.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.viewpager2.widget.ViewPager2;
 import com.example.ctchat.R;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import java.lang.Deprecated;
@@ -18,24 +19,32 @@ import java.lang.Object;
 
 public abstract class ActivityMainBinding extends ViewDataBinding {
   @NonNull
+  public final EditText etSearch;
+
+  @NonNull
   public final FloatingActionButton fabNewGroup;
 
   @NonNull
   public final TabLayout tabLayout;
 
   @NonNull
-  public final Toolbar toolbar;
+  public final MaterialToolbar toolbar;
+
+  @NonNull
+  public final View toolbarDivider;
 
   @NonNull
   public final ViewPager2 viewPager;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      FloatingActionButton fabNewGroup, TabLayout tabLayout, Toolbar toolbar,
-      ViewPager2 viewPager) {
+      EditText etSearch, FloatingActionButton fabNewGroup, TabLayout tabLayout,
+      MaterialToolbar toolbar, View toolbarDivider, ViewPager2 viewPager) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.etSearch = etSearch;
     this.fabNewGroup = fabNewGroup;
     this.tabLayout = tabLayout;
     this.toolbar = toolbar;
+    this.toolbarDivider = toolbarDivider;
     this.viewPager = viewPager;
   }
 

@@ -4,13 +4,14 @@ package com.example.ctchat.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.example.ctchat.R;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.Deprecated;
@@ -18,13 +19,16 @@ import java.lang.Object;
 
 public abstract class ActivityLoginBinding extends ViewDataBinding {
   @NonNull
-  public final Button btnLogin;
+  public final MaterialButton btnLogin;
 
   @NonNull
   public final TextInputEditText etEmail;
 
   @NonNull
   public final TextInputEditText etPassword;
+
+  @NonNull
+  public final ImageView ivLogo;
 
   @NonNull
   public final TextInputLayout tilEmail;
@@ -36,19 +40,24 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   public final TextView tvGoToRegister;
 
   @NonNull
+  public final TextView tvSubtitle;
+
+  @NonNull
   public final TextView tvTitle;
 
   protected ActivityLoginBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button btnLogin, TextInputEditText etEmail, TextInputEditText etPassword,
-      TextInputLayout tilEmail, TextInputLayout tilPassword, TextView tvGoToRegister,
-      TextView tvTitle) {
+      MaterialButton btnLogin, TextInputEditText etEmail, TextInputEditText etPassword,
+      ImageView ivLogo, TextInputLayout tilEmail, TextInputLayout tilPassword,
+      TextView tvGoToRegister, TextView tvSubtitle, TextView tvTitle) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnLogin = btnLogin;
     this.etEmail = etEmail;
     this.etPassword = etPassword;
+    this.ivLogo = ivLogo;
     this.tilEmail = tilEmail;
     this.tilPassword = tilPassword;
     this.tvGoToRegister = tvGoToRegister;
+    this.tvSubtitle = tvSubtitle;
     this.tvTitle = tvTitle;
   }
 

@@ -5,16 +5,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp" android:tag="layout/item_received_message_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp" android:tag="layout/item_received_message_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <TextView
             android:id="@+id/tvSenderName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:layout_marginBottom="2dp"
             android:text="Sender Name"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/primary_color"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,10 +29,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/received_message_background"
-            android:padding="12dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="This is a received message"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textColor="@color/received_message_text"
+            android:textSize="15sp"
+            android:lineSpacingExtra="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSenderName"
             app:layout_constraintWidth_default="wrap"
@@ -46,7 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="12:00 PM"
-            android:textSize="10sp"
+            android:textColor="@color/timestamp_color"
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@id/tvMessage"
             app:layout_constraintStart_toEndOf="@id/tvMessage" />
 

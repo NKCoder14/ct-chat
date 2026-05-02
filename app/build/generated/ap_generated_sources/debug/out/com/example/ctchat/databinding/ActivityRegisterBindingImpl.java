@@ -15,37 +15,39 @@ public class ActivityRegisterBindingImpl extends ActivityRegisterBinding  {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.tvTitle, 1);
-        sViewsWithIds.put(R.id.tilUsername, 2);
-        sViewsWithIds.put(R.id.etUsername, 3);
-        sViewsWithIds.put(R.id.tilEmail, 4);
-        sViewsWithIds.put(R.id.etEmail, 5);
-        sViewsWithIds.put(R.id.tilPassword, 6);
-        sViewsWithIds.put(R.id.etPassword, 7);
-        sViewsWithIds.put(R.id.btnRegister, 8);
+        sViewsWithIds.put(R.id.tvSubtitle, 2);
+        sViewsWithIds.put(R.id.tilUsername, 3);
+        sViewsWithIds.put(R.id.etUsername, 4);
+        sViewsWithIds.put(R.id.tilEmail, 5);
+        sViewsWithIds.put(R.id.etEmail, 6);
+        sViewsWithIds.put(R.id.tilPassword, 7);
+        sViewsWithIds.put(R.id.etPassword, 8);
+        sViewsWithIds.put(R.id.btnRegister, 9);
     }
     // views
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
+    private final android.widget.ScrollView mboundView0;
     // variables
     // values
     // listeners
     // Inverse Binding Event Handlers
 
     public ActivityRegisterBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 9, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
     }
     private ActivityRegisterBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.Button) bindings[8]
-            , (com.google.android.material.textfield.TextInputEditText) bindings[5]
-            , (com.google.android.material.textfield.TextInputEditText) bindings[7]
-            , (com.google.android.material.textfield.TextInputEditText) bindings[3]
-            , (com.google.android.material.textfield.TextInputLayout) bindings[4]
-            , (com.google.android.material.textfield.TextInputLayout) bindings[6]
-            , (com.google.android.material.textfield.TextInputLayout) bindings[2]
+            , (com.google.android.material.button.MaterialButton) bindings[9]
+            , (com.google.android.material.textfield.TextInputEditText) bindings[6]
+            , (com.google.android.material.textfield.TextInputEditText) bindings[8]
+            , (com.google.android.material.textfield.TextInputEditText) bindings[4]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[5]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[7]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[3]
+            , (android.widget.TextView) bindings[2]
             , (android.widget.TextView) bindings[1]
             );
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
+        this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);
         setRootTag(root);
         // listeners

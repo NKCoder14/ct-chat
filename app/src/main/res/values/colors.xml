@@ -2,9 +2,63 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary_color">#093b66</color>
-    <color name="primary_dark_color">#072c4d</color>
-    <color name="sent_message_background">#ee8f34</color>
-    <color name="received_message_background">#F0F0F0</color>
-    <color name="custom_orange">#ee8f34</color>
+
+    <!-- Modern Material 3 Color Palette -->
+    <color name="primary_color">#1B6EF3</color>
+    <color name="primary_dark_color">#0D47A1</color>
+    <color name="primary_light_color">#E3F0FF</color>
+    <color name="on_primary_color">#FFFFFF</color>
+
+    <color name="secondary_color">#6750A4</color>
+    <color name="secondary_container">#EADDFF</color>
+
+    <!-- Background & Surface -->
+    <color name="background_color">#FFFFFF</color>
+    <color name="surface_color">#FAFAFA</color>
+    <color name="surface_variant">#F0F0F5</color>
+    <color name="on_surface_color">#1C1B1F</color>
+    <color name="on_surface_variant">#49454F</color>
+
+    <color name="outline_color">#E0E0E0</color>
+    <color name="outline_variant">#CAC4D0</color>
+
+    <!-- Chat Bubble Colors -->
+    <color name="sent_message_background">#1B6EF3</color>
+    <color name="sent_message_text">#FFFFFF</color>
+    <color name="received_message_background">#F0F0F5</color>
+    <color name="received_message_text">#1C1B1F</color>
+
+    <!-- Accent / FAB -->
+    <color name="custom_orange">#1B6EF3</color>
+
+    <!-- Toolbar / App Bar -->
+    <color name="toolbar_background">#FFFFFF</color>
+    <color name="toolbar_title_color">#1C1B1F</color>
+    <color name="toolbar_icon_color">#49454F</color>
+    <color name="tab_indicator_color">#1B6EF3</color>
+    <color name="tab_text_color">#49454F</color>
+    <color name="tab_selected_text_color">#1B6EF3</color>
+
+    <!-- Status Bar -->
+    <color name="status_bar_color">#FFFFFF</color>
+
+    <!-- Input field -->
+    <color name="input_background">#F5F5F5</color>
+    <color name="input_stroke">#E0E0E0</color>
+
+    <!-- Divider -->
+    <color name="divider_color">#F0F0F0</color>
+
+    <!-- Timestamp -->
+    <color name="timestamp_color">#9E9E9E</color>
+
+    <!-- Ripple -->
+    <color name="ripple_color">#1A1B6EF3</color>
+
+    <!-- Search Bar -->
+    <color name="search_bar_background">#F0F0F5</color>
+    <color name="search_bar_hint">#79747E</color>
+
+    <!-- Navigation Bar -->
+    <color name="navigation_bar_color">#FFFFFF</color>
 </resources>
