@@ -32,11 +32,20 @@ malicious updates to your app.
 /build
 
 ===============================================
+Release Artifacts - DO NOT COMMIT
+===============================================
+Signed APKs, AABs, and release builds.
+app/release/
+*.apk
+*.aab
+
+===============================================
 Development Files & Tools
 ===============================================
 Emulator captures, logs, and native build artifacts.
 /captures/
-/captures/
 *.log
 .externalNativeBuild/
 .cxx/
+*.hprof
+.env
